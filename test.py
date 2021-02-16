@@ -18,6 +18,9 @@ class Teststarex(unittest.TestCase):
         with patch('sys.argv', fake_args):
             self.assertEqual(main(), '159,99 TL', 'OK')
 
+    def test_none_main(self):
+        self.assertEqual(main(), 'please provide link', 'OK')
+
     
 
 

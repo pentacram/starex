@@ -19,6 +19,7 @@ def main():
             return cleaner_data
     else:
         print('please provide link')
+        return('please provide link')
 
 
 if __name__ == '__main__':
