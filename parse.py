@@ -28,8 +28,11 @@ def parse(data):
     for element in range(len(data)):
         if data[element] != " " and "%" not in data[element] and len(data[element]) < 10 and data[element] != '' and "\n" not in data[element]:
             cleaner_data.append(data[element])
-
-    return sorted(cleaner_data)[0]
+    if not cleaner_data:
+        print("Product not found" )
+        return("Product not found" )
+    else:
+        return sorted(cleaner_data)[0]
 
 
 
