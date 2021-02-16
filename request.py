@@ -10,7 +10,10 @@ def request(url):
             pricefind = soup.find(class_="product-detail-price-and-container my-4 clearfix")
             pricefind = pricefind.text
             pricefind = pricefind.strip()
-            print(pricefind[28::])
+            if len(pricefind) < 10:
+                print(pricefind)
+            else:
+                print(pricefind[28::])
             return pricefind
         else:
             soup = BeautifulSoup(req.content, 'html.parser')
