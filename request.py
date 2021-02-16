@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
 def request(url):
     req = requests.get(url)
@@ -7,8 +8,13 @@ def request(url):
         if 'suwen' in url:
             soup = BeautifulSoup(req.content, 'html.parser')
             pricefind = soup.find(class_="product-detail-price-and-container my-4 clearfix")
-            return pricefind.text
+            pricefind = pricefind.text
+            pricefind = pricefind.strip()
+            print(pricefind[28::])
+            return pricefind
         else:
-            return req.content
-    else:
+            soup = BeautifulSoup(req.content, 'html.parser')
+            return soup
+    elif req.status_code == 403:
         return('Security Alert, Permission Denied')
+
